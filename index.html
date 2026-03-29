@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay-It-Forward Community Café</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #E07A6E;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .heart-icon {
+            color: #E07A6E;
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #E07A6E;
+        }
+
+        /* Hero Section - Home */
+        .hero {
+            position: relative;
+            height: 450px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1554118811-1c02745aae4d?w=1200') center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 15px;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-cream {
+            background-color: #E8D4A2;
+            color: #333;
+        }
+
+        .btn-cream:hover {
+            background-color: #DCC88E;
+        }
+
+        .btn-outline-white {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-outline-white:hover {
+            background-color: white;
+            color: #333;
+        }
+
+        .btn-coral {
+            background-color: #E07A6E;
+            color: white;
+        }
+
+        .btn-coral:hover {
+            background-color: #D4695D;
+        }
+
+        /* Section Headers */
+        .section-title {
+            text-align: center;
+            color: #E07A6E;
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 50px 50px;
+            background-color: white;
+        }
+
+        /* Our Mission Section */
+        .mission-section {
+            padding: 60px 50px;
+            background-color: #fafafa;
+        }
+
+        .mission-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+
+        .mission-text {
+            flex: 1;
+        }
+
+        .mission-text h2 {
+            color: #E07A6E;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .mission-text p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .mission-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #E07A6E 0%, #7EB5A6 100%);
+            padding: 70px 50px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .heart-center {
+            font-size: 35px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .cta-section h2 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .cta-section p {
+            margin-bottom: 25px;
+            opacity: 0.95;
+            font-size: 14px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: #E07A6E;
+        }
+
+        .btn-white:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: white;
+            padding: 35px 50px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-logo {
+            color: #E07A6E;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 14px;
+        }
+
+        .footer p {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        /* Page Content */
+        .page-content {
+            display: none;
+            animation: fadeIn 0.4s;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Contribute Page */
+        .contribute-hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200') center/cover;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+            color: white;
+        }
+
+        .contribute-hero h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .contribute-hero p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .donation-cards {
+            display: flex;
+            gap: 25px;
+            padding: 40px 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+            background-color: white;
+        }
+
+        .donation-card {
+            background: white;
+            border: 1.5px solid #E07A6E;
+            border-radius: 8px;
+            padding: 35px 30px;
+            text-align: center;
+            width: 280px;
+        }
+
+        .donation-card .icon-circle {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #E07A6E;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: #E07A6E;
+            font-size: 20px;
+        }
+
+        .donation-card h3 {
+            color: #E07A6E;
+            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .donation-card p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Forms */
+        .form-section {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .form-section h2 {
+            color: #E07A6E;
+            margin-bottom: 25px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            margin-bottom: 6px;
+            color: #555;
+            font-size: 12px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 10px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-family: inherit;
+            background-color: #fafafa;
+            font-size: 13px;
+        }
+
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #E07A6E;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .submit-btn:hover {
+            background-color: #D4695D;
+        }
+
+        .submit-btn.blue {
+            background-color: #7EB5A6;
+        }
+
+        .submit-btn.blue:hover {
+            background-color: #6B9B8E;
+        }
+
+        /* Transparency Section */
+        .transparency-section {
+            background-color: #f0f4f8;
+            padding: 50px 50px;
+        }
+
+        .transparency-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .transparency-box h3 {
+            color: #E07A6E;
+            margin-bottom: 15px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .transparency-box > p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .transparency-box ul {
+            list-style: none;
+        }
+
+        .transparency-box li {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 13px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .check-icon {
+            color: #7EB5A6;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Volunteer Page */
+        .volunteer-hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1200') center/cover;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+            color: white;
+        }
+
+        .volunteer-hero h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .volunteer-hero p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .roles-section {
+            padding: 50px 50px;
+            text-align: center;
+            background-color: white;
+        }
+
+        .roles-section h2 {
+            color: #E07A6E;
+            margin-bottom: 35px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .roles-grid {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .role-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            width: 280px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+
+        .role-icon-bg {
+            width: 55px;
+            height: 55px;
+            background-color: #7EB5A6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .role-icon-bg svg {
+            width: 25px;
+            height: 25px;
+            fill: white;
+        }
+
+        .role-card h3 {
+            color: #E07A6E;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .role-card > p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .hours-tag {
+            background-color: #E8D4A2;
+            color: #333;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .role-tasks {
+            text-align: left;
+            list-style: none;
+        }
+
+        .role-tasks li {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 6px;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .role-tasks li::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border: 1px solid #7EB5A6;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 6px;
+        }
+
+        /* Feedback Section */
+        .feedback-section {
+            background-color: #f9f6f0;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 700px;
+            border-radius: 8px;
+        }
+
+        .feedback-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .chat-icon {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #E07A6E;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #E07A6E;
+            font-size: 10px;
+        }
+
+        .feedback-section h3 {
+            color: #E07A6E;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .feedback-section > p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 15px;
+            margin-left: 30px;
+        }
+
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 12px;
+            margin-left: 30px;
+        }
+
+        /* Map Page */
+        .map-hero {
+            background: linear-gradient(135deg, #E07A6E 0%, #7EB5A6 100%);
+            padding: 50px 50px;
+            text-align: center;
+            color: white;
+        }
+
+        .map-hero h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .map-hero p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .map-container {
+            padding: 40px 50px;
+            text-align: center;
+            background-color: white;
+        }
+
+        .map-placeholder {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 50px;
+            margin-bottom: 25px;
+        }
+
+        .map-pin-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 15px;
+            color: #E07A6E;
+        }
+
+        .map-placeholder h3 {
+            color: #E07A6E;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .map-placeholder > p {
+            color: #666;
+            font-size: 13px;
+            max-width: 450px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+
+        .map-legend {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .locations-section {
+            padding: 40px 50px;
+            background-color: #fafafa;
+        }
+
+        .locations-section h2 {
+            text-align: center;
+            color: #E07A6E;
+            font-size: 22px;
+            margin-bottom: 35px;
+            font-weight: 500;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .location-card h3 {
+            color: #E07A6E;
+            margin-bottom: 4px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .location-type {
+            color: #7EB5A6;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .location-detail {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .location-detail svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: #E07A6E;
+        }
+
+        .location-card .btn {
+            width: 100%;
+            margin-top: 15px;
+            text-align: center;
+            display: block;
+        }
+
+        /* Guidelines Section */
+        .guidelines-section {
+            padding: 50px 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        .guidelines-section h2 {
+            color: #E07A6E;
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .guidelines-box h3 {
+            color: #E07A6E;
+            margin-bottom: 18px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .guidelines-box ul {
+            list-style: none;
+        }
+
+        .guidelines-box li {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guidelines-box ol {
+            padding-left: 18px;
+        }
+
+        .guidelines-box ol li {
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 13px;
+        }
+
+        /* About Page */
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1547592180-85f173990554?w=1200') center/cover;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+            color: white;
+        }
+
+        .about-hero h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .about-hero p {
+            font-size: 14px;
+            opacity: 0.9;
+            max-width: 500px;
+        }
+
+        .about-mission-section {
+            padding: 50px 50px;
+            background-color: white;
+        }
+
+        .about-mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto 50px;
+        }
+
+        .about-mission-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .about-mission-card h2 {
+            color: #E07A6E;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .about-mission-card p {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .values-section {
+            padding: 50px 50px;
+            text-align: center;
+            background-color: #fafafa;
+        }
+
+        .values-section h2 {
+            color: #E07A6E;
+            margin-bottom: 40px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .values-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .value-card {
+            width: 180px;
+        }
+
+        .value-icon-bg {
+            width: 60px;
+            height: 60px;
+            background-color: #E8D4A2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .value-icon-bg svg {
+            width: 28px;
+            height: 28px;
+            fill: #666;
+        }
+
+        .value-card h3 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            color: #666;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .story-section {
+            padding: 50px 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        .story-section h2 {
+            color: #E07A6E;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .story-box {
+            background: white;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .story-box p {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .approach-section {
+            padding: 50px 50px;
+            background-color: #f0f4f8;
+        }
+
+        .approach-section h2 {
+            color: #E07A6E;
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .approach-grid {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .approach-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            width: 280px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .approach-card h3 {
+            color: #E07A6E;
+            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .approach-card p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .research-section {
+            padding: 50px 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        .research-section h2 {
+            color: #E07A6E;
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .research-section > p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .research-list {
+            list-style: none;
+        }
+
+        .research-list li {
+            margin-bottom: 18px;
+            padding-left: 15px;
+            border-left: 3px solid #E07A6E;
+        }
+
+        .research-list strong {
+            color: #333;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .research-list a {
+            color: #7EB5A6;
+            font-size: 12px;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .photo-credits {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+        }
+
+        .photo-credits h3 {
+            color: #E07A6E;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .photo-credits p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .photo-credits a {
+            color: #7EB5A6;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero, .contribute-hero, .volunteer-hero, .about-hero {
+                padding: 0 30px;
+                height: 350px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .mission-container {
+                flex-direction: column;
+            }
+
+            .form-grid,
+            .transparency-container,
+            .guidelines-grid,
+            .about-mission-grid,
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-cards,
+            .roles-grid,
+            .values-grid,
+            .approach-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo" onclick="showPage('home')">
+            <span class="heart-icon">♥</span>
+            <span>Pay-It-Forward Community Café</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+            <li><a href="#" onclick="showPage('contribute')" id="nav-contribute">Contribute</a></li>
+            <li><a href="#" onclick="showPage('volunteer')" id="nav-volunteer">Volunteer</a></li>
+            <li><a href="#" onclick="showPage('locations')" id="nav-locations">Map & Locations</a></li>
+            <li><a href="#" onclick="showPage('about')" id="nav-about">About Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bringing the community together through kindness and shared meals</h1>
+                <p>Join us in creating a sustainable support network for families in need in downtown Beirut</p>
+                <div class="hero-buttons">
+                    <a href="#" onclick="showPage('contribute')" class="btn btn-cream">Donate Now</a>
+                    <a href="#" onclick="showPage('volunteer')" class="btn btn-outline-white">Become a Volunteer</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <h2 class="section-title">How It Works</h2>
+            <!-- Additional content would go here based on full screenshot -->
+        </section>
+
+        <!-- Our Mission Section -->
+        <section class="mission-section">
+            <div class="mission-container">
+                <div class="mission-text">
+                    <h2>Our Mission</h2>
+                    <p>The Pay-It-Forward Community Café is more than just a place to eat. It is a movement of kindness, fairness, and sustainability.</p>
+                    <p>We address the effects of inflation and difficult living conditions by providing nutritious meals, hygiene supplies, and community support to vulnerable families in downtown Beirut.</p>
+                    <p>Through our digital platform and physical locations, we connect volunteers, donors, and families in need, creating a long-term, structured solution for community development.</p>
+                </div>
+                <div class="mission-image">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600" alt="Community cooking">
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="heart-center">♥</div>
+            <h2>Make a Difference Today</h2>
+            <p>Every contribution, big or small, helps us create a more supportive and caring community</p>
+            <div class="cta-buttons">
+                <a href="#" onclick="showPage('contribute')" class="btn btn-white">Get Involved</a>
+                <a href="#" onclick="showPage('about')" class="btn btn-outline-white">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-logo">
+                <span>♥</span>
+                <span>Pay-It-Forward Community Café</span>
+            </div>
+            <p>Bringing the community together through kindness and shared meals</p>
+            <p>© 2026 Pay-It-Forward Community Café. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- CONTRIBUTE PAGE -->
+    <div id="contribute" class="page-content">
+        <section class="contribute-hero">
+            <div>
+                <h1>Make a Contribution</h1>
+                <p>Your generosity helps us provide essential support to families in need</p>
+            </div>
+        </section>
+
+        <section class="donation-cards">
+            <div class="donation-card">
+                <div class="icon-circle">♥</div>
+                <h3>Donate Meals</h3>
+                <p>Provide nutritious meals to families</p>
+            </div>
+            <div class="donation-card">
+                <div class="icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E07A6E" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <h3>Donate Supplies</h3>
+                <p>Contribute hygiene and essential items</p>
+            </div>
+            <div class="donation-card">
+                <div class="icon-circle">$</div>
+                <h3>Financial Support</h3>
+                <p>Make a monetary contribution</p>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2>Meal Donation Form</h2>
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel">
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Meals *</label>
+                        <input type="number" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Additional Comments</label>
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Submit Contribution</button>
+            </form>
+        </section>
+
+        <section class="transparency-section">
+            <h2 class="section-title" style="color: #E07A6E; margin-bottom: 30px;">Our Commitment to Transparency</h2>
+            <div class="transparency-container">
+                <div class="transparency-box">
+                    <h3>How Contributions Are Used</h3>
+                    <ul>
+                        <li><span class="check-icon">✓</span> 70% directly funds meal preparation and distribution</li>
+                        <li><span class="check-icon">✓</span> 20% for hygiene supplies and essential items</li>
+                        <li><span class="check-icon">✓</span> 10% for operational costs and volunteer support</li>
+                    </ul>
+                </div>
+                <div class="transparency-box">
+                    <h3>Tracking Your Impact</h3>
+                    <p>Every contribution is tracked and recorded to ensure complete transparency. You will receive:</p>
+                    <ul>
+                        <li><span class="check-icon">✓</span> Email confirmation of your donation</li>
+                        <li><span class="check-icon">✓</span> Quarterly impact reports</li>
+                        <li><span class="check-icon">✓</span> Stories from families you have helped</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-logo">
+                <span>♥</span>
+                <span>Pay-It-Forward Community Café</span>
+            </div>
+            <p>Bringing the community together through kindness and shared meals</p>
+            <p>© 2026 Pay-It-Forward Community Café. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- VOLUNTEER PAGE -->
+    <div id="volunteer" class="page-content">
+        <section class="volunteer-hero">
+            <div>
+                <h1>Become a Volunteer</h1>
+                <p>Make a direct impact on your community through volunteering</p>
+            </div>
+        </section>
+
+        <section class="roles-section">
+            <h2>Choose Your Role</h2>
+            <div class="roles-grid">
+                <div class="role-card">
+                    <div class="role-icon-bg">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <h3>Meal Preparation</h3>
+                    <p>Help prepare nutritious meals in our community kitchen</p>
+                    <span class="hours-tag">4-6 hours per week</span>
+                    <ul class="role-tasks">
+                        <li>Food preparation and cooking</li>
+                        <li>Portioning and packaging meals</li>
+                        <li>Kitchen cleanup and organization</li>
+                        <li>Quality control and food safety</li>
+                    </ul>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon-bg">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <h3>Transportation</h3>
+                    <p>Deliver meals and supplies to distribution points</p>
+                    <span class="hours-tag">3-5 hours per week</span>
+                    <ul class="role-tasks">
+                        <li>Pick up prepared meals from kitchen</li>
+                        <li>Deliver to designated locations</li>
+                        <li>Ensure timely and safe transport</li>
+                        <li>Communicate with distribution teams</li>
+                    </ul>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon-bg">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <h3>Community Outreach</h3>
+                    <p>Connect with families and spread awareness</p>
+                    <span class="hours-tag">5-7 hours per week</span>
+                    <ul class="role-tasks">
+                        <li>Visit communities and families in need</li>
+                        <li>Distribute information about our services</li>
+                        <li>Build relationships and trust</li>
+                        <li>Gather feedback and testimonials</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2>Volunteer Registration Form</h2>
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>First Name *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Preferred Volunteer Role *</label>
+                        <select required>
+                            <option value="">Select a role</option>
+                            <option>Meal Preparation</option>
+                            <option>Transportation</option>
+                            <option>Community Outreach</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Availability *</label>
+                        <select required>
+                            <option value="">Select availability</option>
+                            <option>Weekdays</option>
+                            <option>Weekends</option>
+                            <option>Flexible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Prior Volunteer Experience</label>
+                        <select>
+                            <option value="">Select experience level</option>
+                            <option>None</option>
+                            <option>Some</option>
+                            <option>Extensive</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Why do you want to volunteer with us?</label>
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn blue">Submit Application</button>
+            </form>
+        </section>
+
+        <section class="feedback-section">
+            <div class="feedback-header">
+                <div class="chat-icon">💬</div>
+                <h3>Share Your Experience</h3>
+            </div>
+            <p>Already volunteering with us? We would love to hear about your experience and suggestions for improvement.</p>
+            <a href="#" class="btn btn-cream btn-small">Give Feedback</a>
+        </section>
+
+        <section class="form-section" style="background-color: #f9f6f0; padding: 30px; border-radius: 8px;">
+            <h2>Feedback Form</h2>
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>First Name *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Your Experience</label>
+                        <textarea></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Suggestions for Improvement</label>
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn blue">Submit Feedback</button>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-logo">
+                <span>♥</span>
+                <span>Pay-It-Forward Community Café</span>
+            </div>
+            <p>Bringing the community together through kindness and shared meals</p>
+            <p>© 2026 Pay-It-Forward Community Café. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- MAP & LOCATIONS PAGE -->
+    <div id="locations" class="page-content">
+        <section class="map-hero">
+            <h1>Locations & Drop-off Points</h1>
+            <p>Find our café locations and donation drop-off points across downtown Beirut</p>
+        </section>
+
+        <section class="map-container">
+            <div class="map-placeholder">
+                <svg class="map-pin-icon" viewBox="0 0 24 24" fill="#E07A6E">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <h3>Interactive Map</h3>
+                <p>An interactive Google Map would be embedded here showing all our locations with clickable pins. Each pin would display location details when clicked.</p>
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background-color: #E07A6E;"></div>
+                        <span>Café & Kitchen</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background-color: #7EB5A6;"></div>
+                        <span>Drop-off Point</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background-color: #E8D4A2;"></div>
+                        <span>Distribution</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="locations-section">
+            <h2>All Locations</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <h3>Main Café & Kitchen</h3>
+                    <div class="location-type">Café & Kitchen</div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>Our main location where meals are prepared and served</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>123 Downtown Street, Beirut</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Monday - Saturday: 9:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        <span>Accepted Items: All donations accepted</span>
+                    </div>
+                    <a href="#" class="btn btn-coral">Get Directions</a>
+                </div>
+                <div class="location-card">
+                    <h3>Central Drop-off Point</h3>
+                    <div class="location-type">Drop-off Point</div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>Convenient location for donation drop-offs</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>456 Market Avenue, Beirut</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Daily: 8:00 AM - 8:00 PM</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        <span>Accepted Items: Non-perishable food, hygiene supplies</span>
+                    </div>
+                    <a href="#" class="btn btn-coral">Get Directions</a>
+                </div>
+                <div class="location-card">
+                    <h3>Community Center East</h3>
+                    <div class="location-type">Distribution Point</div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>Distribution center for meal recipients</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>789 Community Road, Beirut</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Tuesday & Friday: 12:00 PM - 4:00 PM</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        <span>Accepted Items: Meal pick-up only</span>
+                    </div>
+                    <a href="#" class="btn btn-coral">Get Directions</a>
+                </div>
+                <div class="location-card">
+                    <h3>North Beirut Hub</h3>
+                    <div class="location-type">Drop-off & Distribution</div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>Full-service location serving North Beirut</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>321 Peace Boulevard, Beirut</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Monday - Friday: 10:00 AM - 5:00 PM</span>
+                    </div>
+                    <div class="location-detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        <span>Accepted Items: All donations & meal distribution</span>
+                    </div>
+                    <a href="#" class="btn btn-coral">Get Directions</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="guidelines-section">
+            <h2>Donation Guidelines</h2>
+            <div class="guidelines-grid">
+                <div class="guidelines-box">
+                    <h3>What We Accept</h3>
+                    <ul>
+                        <li><span class="check-icon">✓</span> Non-perishable food items</li>
+                        <li><span class="check-icon">✓</span> Hygiene supplies (soap, toothpaste, etc.)</li>
+                        <li><span class="check-icon">✓</span> Baby care products</li>
+                        <li><span class="check-icon">✓</span> Cleaning supplies</li>
+                        <li><span class="check-icon">✓</span> Monetary donations</li>
+                    </ul>
+                </div>
+                <div class="guidelines-box">
+                    <h3>Drop-off Instructions</h3>
+                    <ol>
+                        <li>Choose a convenient location from the map above</li>
+                        <li>Check the operating hours before visiting</li>
+                        <li>Bring items during designated drop-off times</li>
+                        <li>Our volunteers will greet you and process your donation</li>
+                        <li>Receive a donation confirmation if requested</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-logo">
+                <span>♥</span>
+                <span>Pay-It-Forward Community Café</span>
+            </div>
+            <p>Bringing the community together through kindness and shared meals</p>
+            <p>© 2026 Pay-It-Forward Community Café. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- ABOUT US PAGE -->
+    <div id="about" class="page-content">
+        <section class="about-hero">
+            <div>
+                <h1>About Us</h1>
+                <p>Building a sustainable support network through technology, compassion, and community engagement</p>
+            </div>
+        </section>
+
+        <section class="about-mission-section">
+            <div class="about-mission-grid">
+                <div class="about-mission-card">
+                    <h2>Our Mission</h2>
+                    <p>The Pay-It-Forward Community Café develops, organizes, and manages a community support initiative in downtown Beirut. Our café connects volunteers, donors, and families in need through a digital platform that promotes kindness, fairness, and sustainability.</p>
+                    <p>We address the effects of inflation and difficult living conditions by providing nutritious meals, hygiene supplies, and community support, creating a long-term, structured solution for community development.</p>
+                </div>
+                <div class="about-mission-card">
+                    <h2>Our Vision</h2>
+                    <p>We envision a community where no family goes without essential resources, where kindness creates a ripple effect, and where technology bridges the gap between those who want to help and those who need support.</p>
+                    <p>Through our work, we aim to create a model of sustainable community support that can be replicated in other communities facing similar challenges.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3>Kindness</h3>
+                    <p>We believe in the power of compassion and generosity to transform communities</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    </div>
+                    <h3>Fairness</h3>
+                    <p>Equal access to essential resources for all vulnerable families in our community</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h3>Transparency</h3>
+                    <p>Complete openness about how contributions are used and the impact they create</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Dignity</h3>
+                    <p>Treating everyone with respect and preserving the dignity of those we serve</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <h2>Our Story</h2>
+            <div class="story-box">
+                <p>The Pay-It-Forward Community Café was born from a simple observation: our community has both tremendous need and tremendous generosity. What was missing was a reliable, transparent platform to connect the two.</p>
+                <p>In downtown Beirut, families struggle with the rising costs of living, while many community members want to help but do not know where to start. We created this café as a bridge: a physical and digital space where kindness can flow freely and sustainably.</p>
+                <p>Our learning goal extends beyond just providing meals. We aim to develop organizational and management skills through this initiative, while creating a model that addresses Globalization and Sustainability through technology-enabled community development.</p>
+                <p>Every meal served, every volunteer hour contributed, and every donation received is part of a larger movement toward Fairness and Development, ensuring equal access to essential resources for vulnerable families.</p>
+            </div>
+        </section>
+
+        <section class="approach-section">
+            <h2>Our Approach</h2>
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <h3>Technology-Enabled</h3>
+                    <p>Our website serves as a central hub for all activities, providing clear instructions for contributing, volunteering, and understanding our mission.</p>
+                </div>
+                <div class="approach-card">
+                    <h3>Community-Focused</h3>
+                    <p>We prioritize building relationships with the families we serve and the volunteers who make our work possible, creating a true community ecosystem.</p>
+                </div>
+                <div class="approach-card">
+                    <h3>Sustainable Solutions</h3>
+                    <p>Rather than temporary aid, we focus on creating sustainable, long-term support structures that address root causes and build community resilience.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="research-section">
+            <h2>Research & Acknowledgments</h2>
+            <p>Our work is informed by research and best practices from leading organizations:</p>
+            <ul class="research-list">
+                <li>
+                    <strong>World Food Programme</strong> - Emergency response and food security in Lebanon
+                    <br><a href="#">https://www.wfp.org/emergencies/lebanon</a>
+                </li>
+                <li>
+                    <strong>UNICEF Lebanon</strong> - National social protection strategies
+                    <br><a href="#">https://www.unicef.org/lebanon/national-social-protection-strategy-lebanon</a>
+                </li>
+                <li>
+                    <strong>Stanford Social Innovation Review</strong> - Building blocks of a new social economy
+                    <br><a href="#">https://ssir.org/articles/entry/social_tech_entrepreneurs_building_blocks_of_a_new_social_economy</a>
+                </li>
+                <li>
+                    <strong>Nielsen Norman Group</strong> - Trustworthy design principles
+                    <br><a href="#">https://www.nngroup.com/articles/trustworthy-design/</a>
+                </li>
+                <li>
+                    <strong>IFRC</strong> - Policy on humanitarian dignity
+                    <br><a href="#">https://www.ifrc.org/</a>
+                </li>
+            </ul>
+
+            <div class="photo-credits">
+                <h3>Photo Credits</h3>
+                <p>Images on this website are provided by <a href="#">Unsplash</a>, a platform for freely usable images.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-logo">
+                <span>♥</span>
+                <span>Pay-It-Forward Community Café</span>
+            </div>
+            <p>Bringing the community together through kindness and shared meals</p>
+            <p>© 2026 Pay-It-Forward Community Café. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showPage(pageName) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageName).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach
